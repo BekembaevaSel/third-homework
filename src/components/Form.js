@@ -2,27 +2,55 @@ import { useState } from 'react'
 import React from 'react'
 
 const Form = () => {
-	const [name, setName] = useState('')
-	const [phone, setPhone] = useState('')
-	const [email, setEmail] = useState('')
+	// const [name, setName] = useState('')
+	// const [phone, setPhone] = useState('')
+	// const [email, setEmail] = useState('')
 
-	const nameChangeHandler = (event) => {
-		setName(event.target.value)
-	}
+	// const nameChangeHandler = (event) => {
+	// 	setName(event.target.value)
+	// }
 
-    const phoneChangeHandler = (event) => {
-        setPhone(event.target.value)
-    }
+	// const phoneChangeHandler = (event) => {
+	// 	setPhone(event.target.value)
+	// }
 
-    const emailChangeHandler = (event) => {
-        setEmail(event.target.value)
-    }
+	// const emailChangeHandler = (event) => {
+	// 	setEmail(event.target.value)
+	// }
 
 	const submitHandler = (event) => {
 		event.preventDefault()
-		console.log(name)
-        console.log(phone);
-        console.log(email);
+		console.log(userInput);
+		
+	}
+
+	const [userInput, setUserInput] = useState({
+		userName: '',
+		userNumber: '',
+		userEmail: '',
+	})
+
+	const nameChangeHandler = (event) => {
+		setUserInput({
+			...userInput,
+			userName: event.target.value
+		})
+	}
+
+	const numberChangeHandler = (event) => {
+		setUserInput({
+			...userInput,
+			userNumber:event.target.value
+		})
+	}
+
+	const emailChangeHandler = (event) => {
+		setUserInput({
+			...userInput,
+			userEmail:event.target.value
+		})
+
+
 	}
 
 	return (
@@ -30,17 +58,17 @@ const Form = () => {
 			<div>
 				<div>
 					<label>
-						<input type='text' onChange={nameChangeHandler} />
+						<input name='userName' type='text' onChange={nameChangeHandler} />
 					</label>
 				</div>
 				<div>
 					<label>
-						<input type='number' onChange={phoneChangeHandler}/>
+						<input name='userNumber' type='number' onChange={numberChangeHandler} />
 					</label>
 				</div>
 				<div>
 					<label>
-						<input type='email' onChange={emailChangeHandler} />
+						<input name='userEmail' type='email' onChange={emailChangeHandler} />
 					</label>
 				</div>
 			</div>
